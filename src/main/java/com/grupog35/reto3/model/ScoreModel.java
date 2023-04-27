@@ -17,6 +17,6 @@ public class ScoreModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int idScore;
-    private byte score;
+    private int score;
 
 }

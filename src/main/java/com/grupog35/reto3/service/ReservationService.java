@@ -2,6 +2,7 @@ package com.grupog35.reto3.service;
 
 
 
+import com.grupog35.reto3.dbo.ReservationDbo;
 import com.grupog35.reto3.model.ReservationModel;
 import com.grupog35.reto3.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,20 @@ public class ReservationService {
        }
 
     }
+
+    public void eliminar(int id){
+        reservationRepository.deleteById(id);
+    }
+
+    public void actualizar(ReservationDbo reservationDbo) {
+        if(reservationRepository.existsById(reservationDbo.getIdReservation())){
+            ReservationModel reservation = reservationRepository.findById(reservationDbo.getIdReservation()).get();
+            reservation.setStartDate(reservationDbo.getStartDate());
+            reservation.setDevolutionDate(reservationDbo.getDevolutionDate());
+            reservation.setStatus("upgated");
+            reservationRepository.save(reservation);
+        }
+    }
+
+
 }

@@ -25,7 +25,7 @@ public class ClientModel {
     @Column(length = 250)
     private  String name;
     @Column (length = 3)
-    private Byte age;
+    private int age;
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "client")
     private List<MessageModel> messages;
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "client")

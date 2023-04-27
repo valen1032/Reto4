@@ -1,6 +1,7 @@
 package com.grupog35.reto3.controller;
 
 
+import com.grupog35.reto3.dbo.GamaDbo;
 import com.grupog35.reto3.model.GamaModel;
 import com.grupog35.reto3.service.GamaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,22 @@ public class GamaController {
         gamaService.crear(gama);
 
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void eliminar(@PathVariable int id){
+        gamaService.eliminar(id);
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void actualizar(@RequestBody GamaDbo gamaDbo){
+        gamaService.actualizar(gamaDbo);
+    }
+
+
+
+
 
 
 
